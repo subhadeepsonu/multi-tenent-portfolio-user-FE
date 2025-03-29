@@ -4,15 +4,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
 import { BASEURL } from "@/lib/constants"
 import { toast } from "sonner"
-import Modal from "../Modal"
-import UpdateProjectForm from "../forms/UpdateProjectForm"
-import { useState } from "react"
 
 export default function SkillCard(props: {
     id: string,
     name: string,
 }) {
-    const [open, setOpen] = useState(false)
+
     const QueryClient = useQueryClient()
     const DeleteSkill = useMutation({
         mutationFn: async () => {
