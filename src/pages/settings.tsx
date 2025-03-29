@@ -1,4 +1,4 @@
-import { SocialLinksForm, SocialLinksFormValues } from "@/components/forms/SocialLinkForm";
+import { SocialLinksForm } from "@/components/forms/SocialLinkForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BASEURL } from "@/lib/constants";
 import { useQuery } from "@tanstack/react-query";
