@@ -45,6 +45,7 @@ export default function Login() {
             toast.success("Login successful");
             navigate("/dashboard/projects")
         }, onError: (error) => {
+            console.log(error);
             if (axios.isAxiosError(error)) {
                 toast.error(error?.response?.data?.message || "Login failed");
             } else {
