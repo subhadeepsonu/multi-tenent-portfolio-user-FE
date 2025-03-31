@@ -23,7 +23,7 @@ import axios from "axios";
 
 
 const formSchema = z.object({
-    domain: z.string().regex(/^[a-z0-9]+$/, "Must contain only lowercase letters and numbers."),
+    domain: z.string().regex(/^[a-z0-9]+$/, "Must contain only lowercase letters and numbers.").min(1),
     email: z.string().email({ message: "Please enter a valid email address" }),
     password: z.string().min(8, { message: "Password must be at least 8 characters" })
 });

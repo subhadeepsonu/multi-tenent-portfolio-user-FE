@@ -27,7 +27,7 @@ import { toast } from "sonner";
 import { Textarea } from "../ui/textarea";
 
 const socialLinksFormSchema = z.object({
-    domain: z.string().optional(),
+    domain: z.string().regex(/^[a-z0-9]+$/, "Must contain only lowercase letters and numbers.").min(1),
     bio: z.string().optional().or(z.literal("")),
     theme: z.enum(["light", "dark", "retro"]),
     github: z.string().url({ message: "Please enter a valid URL" }).optional().or(z.literal("")),
