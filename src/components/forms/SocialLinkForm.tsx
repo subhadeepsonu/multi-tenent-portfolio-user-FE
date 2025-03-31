@@ -9,6 +9,13 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,8 +24,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { BASEURL } from "@/lib/constants";
 import { toast } from "sonner";
+import { Textarea } from "../ui/textarea";
 
 const socialLinksFormSchema = z.object({
+    domain: z.string().optional(),
+    bio: z.string().optional().or(z.literal("")),
+    theme: z.enum(["light", "dark", "retro"]),
     github: z.string().url({ message: "Please enter a valid URL" }).optional().or(z.literal("")),
     linkedin: z.string().url({ message: "Please enter a valid URL" }).optional().or(z.literal("")),
     twitter: z.string().url({ message: "Please enter a valid URL" }).optional().or(z.literal("")),
@@ -38,7 +49,7 @@ export function SocialLinksForm(props: SocialLinksFormProps) {
     const QueryClient = useQueryClient()
     const MutateSocailLinks = useMutation({
         mutationFn: async () => {
-            const response = await axios.post(`${BASEURL}/socialLinks`, socialLinksForm.getValues(), {
+            const response = await axios.put(`${BASEURL}/user/profile`, socialLinksForm.getValues(), {
                 headers: {
                     Authorization: localStorage.getItem("token")
                 }
@@ -56,6 +67,63 @@ export function SocialLinksForm(props: SocialLinksFormProps) {
     return (
         <Form {...socialLinksForm}>
             <form onSubmit={socialLinksForm.handleSubmit(() => MutateSocailLinks.mutate())} className="space-y-4">
+                <FormField
+                    control={socialLinksForm.control}
+                    name="domain"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Domain</FormLabel>
+                            <FormControl>
+                                <Input
+                                    {...field}
+                                    placeholder="domain"
+                                    value={field.value}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={socialLinksForm.control}
+                    name="theme"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Theme</FormLabel>
+                            <FormControl>
+                                <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
+                                    <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="Theme" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="light">Light</SelectItem>
+                                        <SelectItem value="dark">Dark</SelectItem>
+                                        <SelectItem value="retro">retro</SelectItem>
+                                    </SelectContent>
+                                </Select>
+
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={socialLinksForm.control}
+                    name="bio"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Bio</FormLabel>
+                            <FormControl>
+                                <Textarea
+                                    {...field}
+                                    placeholder="Hello, I am a web developer."
+                                    value={field.value}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
                 <FormField
                     control={socialLinksForm.control}
                     name="github"

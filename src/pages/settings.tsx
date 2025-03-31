@@ -35,14 +35,14 @@ export default function SettingsPage() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Social Links</CardTitle>
+                        <CardTitle>Profile</CardTitle>
                         <CardDescription>
-                            Update your social media profiles
+                            Update your  profile
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <SocialLinksForm
-                            defaultValues={QuerySocailLinks.data.data[0]}
+                            defaultValues={QuerySocailLinks.data.data}
                         />
                     </CardContent>
                 </Card>
