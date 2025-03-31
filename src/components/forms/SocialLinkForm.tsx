@@ -56,8 +56,8 @@ export function SocialLinksForm(props: SocialLinksFormProps) {
             })
             return response.data
         },
-        onSuccess: () => {
-            QueryClient.invalidateQueries({ queryKey: ["socailLinks"] })
+        onSuccess: async () => {
+            await QueryClient.invalidateQueries({ queryKey: ["profile"] })
             toast.success("update successful")
         }, onError: (error: any) => {
             toast.error(error.response?.data?.message || "could not  update")

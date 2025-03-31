@@ -24,7 +24,7 @@ import {
     LogOut,
     User
 } from "lucide-react";
-import ProfileCard from "../cards/profile";
+import ProfileCard from "../cards/profileCard";
 
 export default function DashboardLayout() {
     const navigate = useNavigate();

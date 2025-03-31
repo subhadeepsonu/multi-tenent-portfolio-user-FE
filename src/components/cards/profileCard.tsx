@@ -1,6 +1,8 @@
 import { BASEURL } from "@/lib/constants"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { Link2, Link2Icon } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function ProfileCard() {
     const QueryProfile = useQuery({
@@ -25,7 +27,7 @@ export default function ProfileCard() {
         </div>
     }
     return <div className="text-right hidden sm:block">
-        <p className="text-sm font-medium">{QueryProfile.data.data.domain}</p>
+        <Link target="_blank" to={`https://${QueryProfile.data.data.domain}.hivefolio.xyz/`} className=" font-medium underline  text-blue-600 animate-pulse">{QueryProfile.data.data.domain}</Link>
         <p className="text-xs text-gray-500">{QueryProfile.data.data.email}</p>
     </div>
 }
