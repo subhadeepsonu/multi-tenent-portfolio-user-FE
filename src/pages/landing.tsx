@@ -33,7 +33,7 @@ export default function Landing() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="text-lg px-8">
-                            <Link to="/signup">Get Started</Link>
+                            <Link to="/register">Get Started</Link>
                         </Button>
                         <Button asChild variant="outline" size="lg" className="text-lg px-8">
                             <Link to="/login">Log In</Link>
@@ -118,7 +118,7 @@ export default function Landing() {
                         Join thousands of professionals who have enhanced their online presence with our platform.
                     </p>
                     <Button asChild size="lg" className="text-lg px-8">
-                        <Link to="/signup">Create Your Portfolio Now</Link>
+                        <Link to="/register">Create Your Portfolio Now</Link>
                     </Button>
                 </div>
             </section>
