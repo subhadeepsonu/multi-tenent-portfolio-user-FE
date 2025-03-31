@@ -24,7 +24,6 @@ import {
     LogOut,
     User
 } from "lucide-react";
-import { ModeToggle } from "../mode-toggle";
 import ProfileCard from "../cards/profile";
 
 export default function DashboardLayout() {
