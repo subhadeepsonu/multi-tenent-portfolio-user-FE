@@ -1,7 +1,7 @@
 import { BASEURL } from "@/lib/constants"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { Link2, Link2Icon } from "lucide-react"
+
 import { Link } from "react-router-dom"
 
 export default function ProfileCard() {
