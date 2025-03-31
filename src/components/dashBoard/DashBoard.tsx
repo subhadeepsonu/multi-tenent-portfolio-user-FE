@@ -50,7 +50,7 @@ export default function DashboardLayout() {
                     <SidebarHeader>
                         <div className="flex items-center px-2 py-4">
                             <h1 className="text-xl font-bold">Portfolio Dashboard</h1>
-                            <ModeToggle />
+
                         </div>
                     </SidebarHeader>
                     <SidebarContent>
