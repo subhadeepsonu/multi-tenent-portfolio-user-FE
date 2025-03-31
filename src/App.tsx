@@ -19,11 +19,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Toaster />
+
         <Routes>
           <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/login" element={<ProtectedRoute><Login /></ProtectedRoute>} />
           <Route path="/register" element={<ProtectedRoute><Register /></ProtectedRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>} >
+          <Route path="/dashboard" element={<DashboardLayout />} >
             <Route path="projects" element={<ProtectedRoute><ProjectPage /></ProtectedRoute>} />
             <Route path="skills" element={<ProtectedRoute><SkillsPage /></ProtectedRoute>} />
             <Route path="experience" element={<ProtectedRoute><ExperiencePage /></ProtectedRoute>} />

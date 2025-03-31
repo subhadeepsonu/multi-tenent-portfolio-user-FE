@@ -24,6 +24,8 @@ import {
     LogOut,
     User
 } from "lucide-react";
+import { ModeToggle } from "../mode-toggle";
+import ProfileCard from "../cards/profile";
 
 export default function DashboardLayout() {
     const navigate = useNavigate();
@@ -48,6 +50,7 @@ export default function DashboardLayout() {
                     <SidebarHeader>
                         <div className="flex items-center px-2 py-4">
                             <h1 className="text-xl font-bold">Portfolio Dashboard</h1>
+                            <ModeToggle />
                         </div>
                     </SidebarHeader>
                     <SidebarContent>
@@ -84,18 +87,13 @@ export default function DashboardLayout() {
                         </Button>
                     </SidebarFooter>
                 </Sidebar>
-
                 <SidebarInset>
                     <div className="flex flex-col w-full">
-                        {/* Top bar */}
                         <header className="border-b p-4 flex justify-between items-center bg-white">
                             <SidebarTrigger className="lg:hidden" />
                             <div className="flex-1" />
                             <div className="flex items-center gap-4">
-                                <div className="text-right hidden sm:block">
-                                    <p className="text-sm font-medium">John Doe</p>
-                                    <p className="text-xs text-gray-500">john.doe@example.com</p>
-                                </div>
+                                <ProfileCard />
                                 <Avatar>
                                     <AvatarImage src="https://github.com/shadcn.png" />
                                     <AvatarFallback>
@@ -104,8 +102,6 @@ export default function DashboardLayout() {
                                 </Avatar>
                             </div>
                         </header>
-
-                        {/* Main content */}
                         <main className="flex-1 p-6">
                             <Outlet />
                         </main>

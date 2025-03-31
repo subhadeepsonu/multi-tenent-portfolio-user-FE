@@ -42,7 +42,7 @@ export default function UpdateProjectForm(props: updateProjectFormProps & Projec
 
     const MutateExperience = useMutation({
         mutationFn: async () => {
-            const resposne = await axios.post(`${BASEURL}/projects`, form.getValues(), {
+            const resposne = await axios.put(`${BASEURL}/projects`, form.getValues(), {
                 headers: {
                     Authorization: localStorage.getItem('token'),
                 },
