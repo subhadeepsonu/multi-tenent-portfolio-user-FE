@@ -131,7 +131,7 @@ export default function UpdateProjectForm(props: updateProjectFormProps & Projec
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Create Project</Button>
+                <Button type="submit">update Project</Button>
             </form>
         </Form>
     );
