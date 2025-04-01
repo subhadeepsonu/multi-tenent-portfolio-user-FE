@@ -17,33 +17,41 @@ import {
     Star,
     Users
 } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "motion/react";
+import { HeroHeader } from "@/components/hero5-header";
 
 export default function Landing() {
     return (
         <div className="min-h-screen flex flex-col">
-            {/* Hero Section */}
-            <section className="py-20 px-4">
-                <div className="max-w-6xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
+            <HeroHeader />
+            <AuroraBackground  >
+                <motion.div
+                    initial={{ opacity: 0.0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                        delay: 0.3,
+                        duration: 0.8,
+                        ease: "easeInOut",
+                    }}
+                    className="relative flex flex-col gap-4 items-center justify-center px-4"
+                >
+                    <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
                         Build Your Professional Portfolio
-                    </h1>
-                    <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                        Create a stunning portfolio website to showcase your skills, projects, and experience.
-                        Stand out in the competitive job market.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg" className="text-lg px-8">
-                            <Link to="/register">Get Started</Link>
-                        </Button>
-                        <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                            <Link to="/login">Log In</Link>
-                        </Button>
                     </div>
-                </div>
-            </section>
+                    <div className="font-extralight text-base md:text-xl w-1/2 text-center dark:text-neutral-200 py-4">
+                        Create a stunning portfolio website to showcase your skills, projects, and experience. Stand out in the competitive job market.
+                    </div>
+                    <Link to={"/register"}>
+                        <button className="bg-black dark:bg-white rounded-full cursor-pointer w-fit text-white dark:text-black px-4 py-2">
+                            Get started
+                        </button>
+                    </Link>
+                </motion.div>
+            </AuroraBackground>
 
             {/* Features Section */}
-            <section className="py-20 px-4 border-t">
+            <section id="features" className="py-20 px-4 min-h-screen border-t">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
                         Everything You Need To Build Your Online Presence
@@ -85,7 +93,7 @@ export default function Landing() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 px-4 border-t">
+            <section id="testimonials" className="py-20  px-4 border-t">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
                         Join Thousands of Happy Users
@@ -109,7 +117,7 @@ export default function Landing() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 border-t">
+            <section id="about" className="py-20 px-4 border-t">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
                         Ready to Build Your Professional Portfolio?
