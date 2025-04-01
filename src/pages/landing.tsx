@@ -39,9 +39,13 @@ export default function Landing() {
                     <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
                         Build Your Professional Portfolio
                     </div>
-                    <div className="font-extralight text-base md:text-xl w-1/2 text-center dark:text-neutral-200 py-4">
+                    <div className="font-extralight hidden md:block text-base md:text-xl md:w-1/2 text-center dark:text-neutral-200 py-4">
                         Create a stunning portfolio website to showcase your skills, projects, and experience. Stand out in the competitive job market.
                     </div>
+                    <div className="font-extralight md:hidden  text-base md:text-xl md:w-1/2 text-center dark:text-neutral-200 py-4">
+                        Create a stunning portfolio website. Stand out in the competitive job market.
+                    </div>
+
                     <Link to={"/register"}>
                         <button className="bg-black dark:bg-white rounded-full cursor-pointer w-fit text-white dark:text-black px-4 py-2">
                             Get started
