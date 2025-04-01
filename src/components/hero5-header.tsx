@@ -33,7 +33,7 @@ export const HeroHeader = () => {
                                 to="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
-                                <img src="../public/vite.jpeg" className="h-10" />
+                                <img src="/vite.jpeg" className="h-10" />
                             </Link>
 
                             <button
