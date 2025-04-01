@@ -40,7 +40,6 @@ export default function DashboardLayout() {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
-        localStorage.removeItem("show");
         navigate("/login");
     };
 
