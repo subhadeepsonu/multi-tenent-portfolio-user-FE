@@ -36,7 +36,7 @@ export default function GettingStarted() {
 
         },
         {
-            text: "Find your portfolio at <yourdomain>.portfolio.com",
+            text: "Find your portfolio at <yourdomain>.hivefolio.xyz",
         },
     ];
 
