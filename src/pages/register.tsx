@@ -1,5 +1,5 @@
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -33,7 +33,6 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function Register() {
 
-    const navigate = useNavigate();
     const MutateRegister = useMutation({
         mutationFn: async () => {
             const resp = await axios.post(`${BASEURL}/user/register`, {
@@ -43,14 +42,10 @@ export default function Register() {
             });
             return resp.data;
         }, onSuccess: (data) => {
-            console.log(data);
-            localStorage.setItem("token", data?.data);
-            toast.success("Login successful");
-            navigate("/dashboard/projects")
+            toast.success(data.message || "Verification email sent successfully");
         }, onError: (error: any) => {
             console.log(error)
             toast.error(error?.response?.data?.message || "Login failed");
-
         }
     })
     const form = useForm<FormValues>({
