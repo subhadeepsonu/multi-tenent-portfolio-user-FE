@@ -19,7 +19,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Toaster />
-
         <Routes>
           <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/login" element={<ProtectedRoute><Login /></ProtectedRoute>} />

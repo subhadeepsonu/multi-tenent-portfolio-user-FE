@@ -25,6 +25,7 @@ import {
     User
 } from "lucide-react";
 import ProfileCard from "../cards/profileCard";
+import GettingStarted from "../GettingStarted";
 
 export default function DashboardLayout() {
     const navigate = useNavigate();
@@ -44,6 +45,7 @@ export default function DashboardLayout() {
 
     return (
         <SidebarProvider defaultOpen={true}>
+            <GettingStarted />
             <div className="flex min-h-screen w-full bg-gray-50">
                 <Sidebar>
                     <SidebarHeader>

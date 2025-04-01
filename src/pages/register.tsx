@@ -11,6 +11,7 @@ import { Mail, User } from "lucide-react";
 import {
     Form,
     FormControl,
+    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -86,6 +87,7 @@ export default function Register() {
                                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                                     </div>
                                 </FormControl>
+                                <FormDescription>This will be your unique sub-domain</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}
