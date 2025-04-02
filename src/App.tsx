@@ -11,6 +11,7 @@ import DashboardLayout from './components/dashBoard/DashBoard';
 import { Toaster } from 'sonner';
 import ProtectedRoute from './lib/ProtectedRoute';
 import SettingsPage from './pages/settings';
+import Verify from './pages/verify';
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/login" element={<ProtectedRoute><Login /></ProtectedRoute>} />
           <Route path="/register" element={<ProtectedRoute><Register /></ProtectedRoute>} />
+          <Route path='/verify/:token' element={<Verify />}></Route>
           <Route path="/dashboard" element={<DashboardLayout />} >
             <Route path="projects" element={<ProtectedRoute><ProjectPage /></ProtectedRoute>} />
             <Route path="skills" element={<ProtectedRoute><SkillsPage /></ProtectedRoute>} />
