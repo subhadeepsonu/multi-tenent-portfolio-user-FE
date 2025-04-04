@@ -4,7 +4,7 @@ import axios from "axios"
 
 import { Link } from "react-router-dom"
 import { Button } from "../ui/button"
-import { ArrowRight } from "lucide-react"
+
 
 export default function ProfileCard() {
     const QueryProfile = useQuery({
@@ -32,6 +32,5 @@ export default function ProfileCard() {
         <Button className="cursor-pointer animate-pulse" >
             <Link target="_blank" to={`https://${QueryProfile.data.data.domain}.hivefolio.xyz/`}>Preview </Link>
         </Button>
-
     </div>
 }
