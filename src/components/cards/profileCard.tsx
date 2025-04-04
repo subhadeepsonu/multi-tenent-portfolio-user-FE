@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
 import { Link } from "react-router-dom"
+import { Button } from "../ui/button"
+import { ArrowRight } from "lucide-react"
 
 export default function ProfileCard() {
     const QueryProfile = useQuery({
@@ -27,7 +29,9 @@ export default function ProfileCard() {
         </div>
     }
     return <div className="text-right hidden sm:block">
-        <Link target="_blank" to={`https://${QueryProfile.data.data.domain}.hivefolio.xyz/`} className=" font-medium underline  text-blue-600 animate-pulse">{QueryProfile.data.data.domain}</Link>
-        <p className="text-xs text-gray-500">{QueryProfile.data.data.email}</p>
+        <Button className="cursor-pointer animate-pulse" >
+            <Link target="_blank" to={`https://${QueryProfile.data.data.domain}.hivefolio.xyz/`}>Preview </Link>
+        </Button>
+
     </div>
 }
